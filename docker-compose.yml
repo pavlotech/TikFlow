@@ -1,0 +1,13 @@
+services:
+  bot:
+    build: .
+    ports:
+      - "2222:2222"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./logs:/app/logs
+      - /app/node_modules
+      - ./prisma:/app/prisma
+    command: bun run start
+    restart: always
